@@ -1,0 +1,7 @@
+# ignore files not needed
+.DS_Store
+desktop.ini
+
+.gdoc
+dwsync.xml
+_notes

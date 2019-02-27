@@ -1,0 +1,74 @@
+/* Page specific style overwrites for view reported  user */
+
+table {
+    margin-top: 5%;
+    /* move table down from top */
+    /* give table a fixed width for centering */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    /* apply a solid 2px border to the table using css variable from set colours in global css */
+    border: 2px var(--main-colour-four) solid;
+
+}
+
+th,
+td {
+    /* apply padding to the cell contents */
+    padding: 15px;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* modal box by Hristo Marinov */
+.OptionsBtn,
+button {
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    width: 150px;
+
+}
+
+.modal-box {
+    width: 270px;
+}
+
+.ReportedUsersAction {
+    position: relative;
+    bottom: 10px;
+
+    width: 250px;
+}
+
+.ReportedUsersAction,
+input {
+
+    margin: 15px;
+    font-family: 'Cabin', sans-serif;
+
+}
+
+input[type="radio"] {
+    width: auto;
+    /* grid-area: 1/2;*/
+}
+
+.RadioInputs {
+
+    width: 250px;
+    max-width: 250px;
+
+}
+
+#SubmitBtn {
+    width: 100px;
+    position: relative;
+    left: 22%;
+
+}
+
+/* */
