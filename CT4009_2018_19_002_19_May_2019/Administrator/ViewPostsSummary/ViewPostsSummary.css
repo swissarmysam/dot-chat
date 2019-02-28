@@ -3,7 +3,7 @@
 table {
     margin-top: 5%;
     /* assign fixed width so table can be centered with margins */
-    width: 50%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     /* add 2px solid border using css variable */

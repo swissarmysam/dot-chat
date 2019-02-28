@@ -75,7 +75,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                     <tr>
                         <th>Post ID</th>
                         <!-- <th>Post Title</th> -->
-                        <!-- <th>Post Image</th> -->
+                        <th>Post Image</th>
                         <th>Post Message</th>
                         <th>Posted By User</th>
                         <th>Date Posted</th>

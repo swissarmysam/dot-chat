@@ -10,7 +10,7 @@
 
 function getPostCount() {
     $connection = openConnection(); // connect to database
-    echo '<tr class="userEntry">'; // create select tag with id of country so it can be selected in Register.js
+    echo '<tr>'; // create select tag with id of country so it can be selected in Register.js
     $query = mysqli_query($connection, 'SELECT `post_id` FROM `tbl_posts`');
     $number = mysqli_num_rows($query); // create query to select record from user_id and full_name columns
     if($number) { // if a record exists then...
@@ -32,15 +32,18 @@ function getPostCount() {
 function getPostDetails() {
 
     $connection = openConnection(); // connect to database
-    $query = mysqli_query($connection, "SELECT `post_id`, `user_id`, `post_message`, `date_time_posted` FROM `tbl_posts`"); // create query to select record from user_id and full_name columns
+    $sql = "SELECT tbl_posts.post_id, tbl_posts.post_message, tbl_posts.post_img, tbl_posts.date_time_posted, tbl_members.full_name 
+            FROM tbl_posts INNER JOIN tbl_members ON tbl_posts.user_id=tbl_members.user_id 
+            ORDER BY tbl_posts.date_time_posted DESC";
+    $query = mysqli_query($connection, $sql); 
     if(mysqli_num_rows($query) > 0) { // if a record exists then...
         while($option_row = mysqli_fetch_array($query, MYSQLI_NUM)) { // fetch query result as a numbered array and assign as $option_row
             echo '<tr>';
-            // Ref: $option_row[0] = 'post_id', $option_row[1] = 'user_id', $option_row[2] = 'post_caption'
-            echo "<td>" . $option_row[0] . "</td>"; // create table cell with post_caption and post_id as id
-            // echo "<td><p>" . $option_row . "</p></td>"; // create table cell with post image
-            echo "<td><p>" . $option_row[2] . "</p></td>"; // create table cell with post message
-            echo "<td><p>" . $option_row[1] . "</p></td>"; // create table cell with post sender id
+            // Ref: $option_row[0] = 'post_id', $option_row[1] = 'user_id', $option_row[2] = 'post_img'
+            echo "<td>" . $option_row[0] . "</td>"; // create table cell with post_id 
+            echo "<td><img src='../../User/CreateViewStackPosts/uploads/" . $option_row[2] . "'></p></td>"; // create table cell with post image
+            echo "<td><p>" . $option_row[1] . "</p></td>"; // create table cell with post message
+            echo "<td><p>" . $option_row[4] . "</p></td>"; // create table cell with post sender name
             echo "<td><p>" . $option_row[3] . "</p></td>"; // create table cell with post date
             echo "<td id='" . $option_row[0] . "'><a href='#' class='actionDeletePost'>Delete Post</a></td>";
             echo '</tr>'; // close select tag 
