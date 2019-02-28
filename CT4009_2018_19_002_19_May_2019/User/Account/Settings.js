@@ -6,8 +6,6 @@
 //Event handler for each "Delete User" action
 $('#deactivateBtn').click(function () { // when clicked
 
-    let id = sessionStorage.getItem('user_id');
-
     // prompt user to type delete to confirm user account should be deleted.
     let confirmDeactivate = prompt("Please type the word 'deactivate' to deactivate your account. \nWarning: You will need to contact support to reactivate.");
 
@@ -18,12 +16,12 @@ $('#deactivateBtn').click(function () { // when clicked
             type: "POST",
             url: "SettingsDAO.php",
             data: {
-                aid: "deactivate",
-                id: id
+                aid: "deactivate"
             }
         }).done(function (response) {
             if (response == "success") {
-               let deactivateSuccess = alert("You will now be redirected.");
+               let deactivateSuccess = alert("You will now be logged out.");
+               location.href="/";
             } else {
                 alert(`Something went wrong. Please try again or contact support.`);
             }

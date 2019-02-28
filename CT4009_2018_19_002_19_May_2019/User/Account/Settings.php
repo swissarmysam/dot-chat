@@ -5,6 +5,8 @@
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 // include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
 
+include_once("./ShowCurrentDetails.php");
+
 $page_title = "Account Settings - (dot)chat"; // set web page title
 include('../../inc/lib/php/header.html'); // include standard html head material 
 
@@ -60,20 +62,23 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <h3>Update Account Details</h3>
             
             <h4>Update Name</h4>
-            <label>Current Name</label>
-            <input type="text"><br>
+            <label>Current Name: </label>
+            <?php showCurrentDetail('full_name'); ?>
+            <br>
             <label>New Name</label>
             <input type="text">
 
             <h4>Update Email Address</h4>
-            <label>Current Email</label>
-            <input type="email"><br>
+            <label>Current Email: </label>
+            <?php showCurrentDetail('email'); ?>
+            <br>
             <label>New Email</label>
             <input type="email">
             
             <h4>Update Country</h4>
-            <label>Current Country</label>
-            <input type="text"><br>
+            <label>Current Country: </label>
+            <?php showCurrentDetail('country_name'); ?>
+            <br>
             <label>New Country</label>
             <select class="field-text" id="country" name="country">
                 <option class="field-text"></option>
