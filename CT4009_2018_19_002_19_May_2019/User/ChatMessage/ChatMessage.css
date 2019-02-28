@@ -32,10 +32,10 @@ div > p {
 }
 
 
-/* .msg {
-    background-color: rgba(245, 245, 245, 0.856);
-    border-radius: 15px;
-} */
+.msg {
+    border-left: 4px solid rgba(245, 245, 245, 0.856);
+    padding-left: 6px;
+} 
 
 .text {
     grid-area: message-text;

@@ -18,17 +18,17 @@ $("#comment-post").click(function () { // if the comment menu option type is sel
         let to = sessionStorage.getItem('wallID'); // get the wall owners user id - this value is set in the BlockReportUser.js file
         let fromId = parseInt($(".user").attr('id'));
         let origin = $(".country").attr('id');
-        let postDate = new Date().toISOString().split("T")[0]; // Get date and convert to string suitable for MySQL DB [Ref. https://stackoverflow.com/questions/2280104/convert-javascript-to-date-object-to-mysql-date-format-yyyy-mm-dd]
         let message = $('#txtComment').val(); // Get comment message
+        // date will be populated by the server
 
-        saveTextData(message, to, fromId, origin, postDate);
+        saveTextData(message, to, fromId, origin);
         
     });
 
     return; // exit function
 });
 
-function saveTextData(post, to, fromId, origin, date) { // post by will come from $_SESSION['user_id'] value in DAO
+function saveTextData(post, to, fromId, origin) { // post by will come from $_SESSION['user_id'] value in DAO
 
     $.ajax({
         type: "POST",
@@ -37,11 +37,10 @@ function saveTextData(post, to, fromId, origin, date) { // post by will come fro
             to: to,
             from: fromId,
             origin: origin,
-            contents: post,
-            date: date
+            contents: post
         },
         success: function (response) {
-            if(response === "true") {
+            if(response === "success") {
                 console.log("Successfully saved post data");
                 location.reload(); 
             } else {
@@ -77,49 +76,47 @@ $("#image-post").click(function () {
         }
     });
 
-     $('#saveImgBtn').click(function () { // when save button is clicked
-         let to = sessionStorage.getItem('wallID'); // get the wall owners user id - this value is set in the BlockReportUser.js file
-         let fromId = parseInt($(".user").attr('id'));
-         let origin = $(".country").attr('id');
-         let postDate = new Date().toISOString().split("T")[0]; // Get date and convert to string suitable for MySQL DB [Ref. https://stackoverflow.com/questions/2280104/convert-javascript-to-date-object-to-mysql-date-format-yyyy-mm-dd]
-         let image = $('#fileInput')[0].files[0];
-         let img_url = window.URL.createObjectURL(image);
-         let html = $(`<div class="post h4 v4"> <img src="${img_url}"> <br><br> ${postDate} </div>`).fadeIn(500, function () {
-             // document.post.reset();
-         });
-         $(".wall").prepend(html);
-         console.log(`Image: ${image} and Image URL: ${img_url}`);
-         // saveImageData(message);
-        // saveImageData(message);
+    //  $('#saveImgBtn').click(function () { // when save button is clicked
+    //      let to = sessionStorage.getItem('wallID'); // get the wall owners user id - this value is set in the BlockReportUser.js file
+    //      let fromId = parseInt($(".user").attr('id'));
+    //      let origin = $(".country").attr('id');
+    //      let image = $('#fileInput')[0].files[0];
+    //      let img_url = window.URL.createObjectURL(image);
+    //     //  let html = $(`<div class="post h4 v4"> <img src="${img_url}"> </div>`).fadeIn(500, function () {
+    //          // document.post.reset();
+    //     //  });
+    //      console.log("Image:", image);
+    //      saveImageData(image, to, fromId, origin);
          
-     });
+    //  });
 });
 
-function saveImageData(post, to, fromId, origin, date) { // post by will come from $_SESSION['user_id'] value in DAO
+// function saveImageData(image, to, fromId, origin) { // post by will come from $_SESSION['user_id'] value in DAO
 
-    $.ajax({
-        type: "POST",
-        url: "WallPostsDAO.php",
-        data: {
-            to: to,
-            from: fromId,
-            origin: origin,
-            contents: post,
-            date: date
-        },
-        success: function (response) {
-            if (response === "true") {
-                console.log("Successfully saved post data");
-                location.reload();
-            } else {
-                alert("Your post was not saved.");
-            }
-        }
-    });
+//     $.ajax({
+//         type: "POST",
+//         url: "SaveImageDAO.php",
+//         // contentType: false,
+//         processData: false,
+//         data: {
+//             to: to,
+//             from: fromId,
+//             origin: origin,
+//             image: image
+//         },
+//         success: function (response) {
+//             if (response === "true") {
+//                 console.log("Successfully saved post data");
+//                 location.reload();
+//             } else {
+//                 alert("Your post was not saved.");
+//             }
+//         }
+//     });
 
 
-    return false; // exit function
-}
+//     return false; // exit function
+// }
 
 // map location posts not working fully 
 $("#loc-post").click(function(){
@@ -130,11 +127,10 @@ $("#loc-post").click(function(){
     $('#saveTextBtn').click(function () { // when save button is clicked
 
         let to = localStorage.getItem('wallOwnerID');
-        let postDate = new Date().toDateString();
         let lat = lat;
         let long = long;
       
-        let html = $(`<div class="post h4 v3"> ${message} <br><br> ${postDate} </div>`).fadeIn(500, function () {
+        let html = $(`<div class="post h4 v3"> ${message} </div>`).fadeIn(500, function () {
             //document.post.reset(); 
         });
         $(".wall").prepend(html);
@@ -145,7 +141,7 @@ $("#loc-post").click(function(){
     return; // exit function
 });
 
-function saveMapData(post, to, date, html) { // post by will come from $_SESSION['user_id'] value in DAO
+function saveMapData(post, to, html) { // post by will come from $_SESSION['user_id'] value in DAO
 
     $.ajax({
         type: "POST",

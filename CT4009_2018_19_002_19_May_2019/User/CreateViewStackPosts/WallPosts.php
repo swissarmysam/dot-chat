@@ -74,9 +74,11 @@ include('../../inc/lib/php/header.html'); // include standard html head material
 
         <!-- Image Posts action - event handled by WallPosts.js -->
         <div id="imgPost" class="action">
-            <input id="fileInput" class="image" type="file" /> <!-- file selection input -->
-            <img id="fileImagePreview" src=""> <!-- empty image tag for file preview populated by built img_url-->
-            <button id="saveImgBtn">Save Image</button>
+            <form enctype="multipart/form-data" method="post" action="SaveImageDAO.php">
+                <input id="fileInput" class="image" type="file" name="image" /> <!-- file selection input -->
+                <img id="fileImagePreview" src=""> <!-- empty image tag for file preview populated by built img_url-->
+                <button type="submit" id="saveImgBtn">Save Image</button>
+            </form>
         </div>
 
         <!-- Map Posts action - event handled by WallPosts.js -->
