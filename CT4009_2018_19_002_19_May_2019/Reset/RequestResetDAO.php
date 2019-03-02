@@ -1,6 +1,6 @@
 <?php
 
-include('/home/s1804867saming/public_html/CT4009_2018_19_002_19_May_2019/inc/lib/php/mysqli_connect.php');
+include(__DIR__ . '/../inc/lib/php/mysqli_connect.php');
 
 $connection = openConnection();
 

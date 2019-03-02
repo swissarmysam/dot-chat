@@ -2,7 +2,7 @@
 
 /* This script handles the database requests for ViewPostsSummary page */
 
- include_once('/home/s1804867saming/public_html/CT4009_2018_19_002_19_May_2019/inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
+ include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
 
 /* ************************************************************************ */
 /* * DISPLAY THE POST COUNT IN A TABLE AND ADD ACTIONS INC. HEATMAP LINK  * */

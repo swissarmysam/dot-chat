@@ -2,7 +2,7 @@
 
 /* This script handles ajax request sent from Register.js and add the user details to the tbl_member table in the database */
 
-include('/home/s1804867saming/public_html/CT4009_2018_19_002_19_May_2019/inc/lib/php/mysqli_connect.php'); // include database connection script
+include(__DIR__ . '/../inc/lib/php/mysqli_connect.php'); // include database connection script
 
 // build email advising user that account has been registered then send from server
 function successEmail($email, $fn, $c){ // email, full name and country are passed as arguments
