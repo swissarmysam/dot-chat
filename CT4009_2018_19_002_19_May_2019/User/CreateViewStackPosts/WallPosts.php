@@ -68,6 +68,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
         <div id="txtPost" class="action">
             <form>
                 <textarea id="txtComment" type="text" rows="5" cols="60"></textarea> <!-- set text area size -->
+                <br>
                 <button id="saveTextBtn">Save Message</button>
             </form>
         </div>
@@ -77,6 +78,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <form enctype="multipart/form-data" method="post" action="SaveImageDAO.php">
                 <input id="fileInput" class="image" type="file" name="image" /> <!-- file selection input -->
                 <img id="fileImagePreview" src=""> <!-- empty image tag for file preview populated by built img_url-->
+                <br>
                 <button type="submit" id="saveImgBtn">Save Image</button>
             </form>
         </div>
@@ -84,11 +86,8 @@ include('../../inc/lib/php/header.html'); // include standard html head material
         <!-- Map Posts action - event handled by WallPosts.js -->
         <div id="mapPost" class="action">
             <div id="mapInput"></div> <!-- show map -->
-            <label>Latitude: </label>
-            <input type="text" id="txtLatitude" name="latitude" /> <br>
-            <label>Longitude: </label>
-            <input type="text" id="txtLongitude" name="longitude" />
-            <button id="saveLocBtn">Save Map</button>
+            <br>
+            <button id="saveLocBtn">Save Location</button>
         </div>
 
 

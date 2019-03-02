@@ -6,7 +6,7 @@ require('../../inc/lib/php/config.inc.php'); // include site-wide functionality
 // include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
 require('./ViewReportedUsersDAO.php'); // get db script for this page
 
-$page_title = "Dashboard - (dot)chat"; // set web page title
+$page_title = "Reported Users - (dot)chat"; // set web page title
 include('../../inc/lib/php/header.html'); // include standard html head material 
 
 ?>
@@ -18,7 +18,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
 <link rel="stylesheet" type="text/css" media="screen" href="../../inc/css/Global.css" />
 
 <!-- Overwrite and/or add page specific styles -->
-<link rel="stylesheet" type="text/css" media="screen" href="ViewReportedUsers.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="./ViewReportedUsers.css" />
 
 <!-- Import JS libraries -->
 
@@ -51,12 +51,13 @@ include('../../inc/lib/php/header.html'); // include standard html head material
 
         <!-- Main section -->
         <main>
-            <h2>User List</h2>
+            <h2>Reported User List</h2>
 
             <!-- Table element to list users in database - this will be populated by BlockReportUser.js -->
             <table id="listUsers" class="active">
                 <tr>
                     <th><b>Report No</b></th>
+                    <th><b>Reported User</b></th>
                     <th><b>Report Reason</b></th>
                     <th><b>Report Date</b></th>
                     <th><b>Action</b></th>
@@ -75,8 +76,9 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                         <input type="radio" name="action" value="one-day">Ban User for 24 hours<br>
                         <input type="radio" name="action" value="three-day">Ban User for 72 hours<br>
                         <input type="radio" name="action" value="ban-forever">Permanently Ban User<br>
+                        <input type="radio" name="action" value="delete-report">Delete Report<br>
                     </div>
-                        <input type="button" id="SubmitBtn">
+                    <button class="btn btnGreen" id="SubmitBtn">Submit</button>
                 </form>
             </div>
         </div>
@@ -85,6 +87,6 @@ include('../../inc/lib/php/header.html'); // include standard html head material
     </div>
 
     <!-- Load javascript files -->
-    <script src="./ViewReportedUser.js"></script>
+    <script src="./ViewReportedUsers.js"></script>
 
     <?php include('../../inc/lib/php/footer.html'); ?>

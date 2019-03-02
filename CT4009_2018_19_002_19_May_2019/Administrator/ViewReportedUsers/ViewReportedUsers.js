@@ -11,6 +11,8 @@ let modal = $(".modal-container"); // select the modal container
 
 $(".actionManageReport").on("click", function () { // when the actionManageReport link is clicked 
     modal.css("display", "block"); // make the modal visible
+    let reportId = parseInt($(this).closest('td').attr('id'));
+    sessionStorage.setItem('checkReportId', reportId);
 });
 
 $(".close").on("click", function () { // when the close button is clicked
@@ -19,43 +21,51 @@ $(".close").on("click", function () { // when the close button is clicked
 
 // 
 
+$('#SubmitBtn').on("click", getReport);
+
 function getReport(){
 
     let action = $('input[name=action]:checked').val(); // get the value from the radio input
-    let user = parseInt($(this).closest('td').attr('id')); // get the user id so user can be found in members database
+    let user = sessionStorage.getItem('checkReportId'); // get the user id so user can be found in members database
+
 
     switch(action) {
 
         case "warning":
-        return sendReport(user, "warning");
-        break;
+            sendReport(user, "warning");
+            break;
 
         case "one-day":
-        return sendReport(user, "one-day");
-        break;
+            sendReport(user, "one-day");
+            break;
 
         case "three-day":
-        return sendReport(user, "three-day");
-        break;
+            sendReport(user, "three-day");
+            break;
 
         case "ban-forever":
-        return sendReport(user, "ban-forever");
-        break;
+            sendReport(user, "ban-forever");
+            break;
+
+        case "delete-report":
+            sendReport(user, "delete-report");
+            break;
 
         default:
-        alert("No action has been taken.");
-        return false;
+            alert("No action has been taken.");
+            return false;
     }
 }
 
-function sendReport(user, action) { // build request to server from user id and action for server -> handleReport() in DAO
-
-    let dataString = 'user_id=' + user + '&action=' + action;
+function sendReport(user = 0, action) { // build request to server from user id and action for server -> handleReport() in DAO
 
     $.ajax({
         type: "POST",
-        url: ViewReportedUsersDAO.php,
-        data: dataString,
+        url: "ViewReportedUsersDAO.php",
+        data: {
+            uid: user,
+            action: action
+        },
         cache: false,
         success: function() {
             alert("Report action successful");

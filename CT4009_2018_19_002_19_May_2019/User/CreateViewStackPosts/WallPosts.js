@@ -20,7 +20,6 @@ $("#comment-post").click(function () { // if the comment menu option type is sel
         let origin = $(".country").attr('id');
         let message = $('#txtComment').val(); // Get comment message
         // date will be populated by the server
-
         saveTextData(message, to, fromId, origin);
         
     });
@@ -76,47 +75,7 @@ $("#image-post").click(function () {
         }
     });
 
-    //  $('#saveImgBtn').click(function () { // when save button is clicked
-    //      let to = sessionStorage.getItem('wallID'); // get the wall owners user id - this value is set in the BlockReportUser.js file
-    //      let fromId = parseInt($(".user").attr('id'));
-    //      let origin = $(".country").attr('id');
-    //      let image = $('#fileInput')[0].files[0];
-    //      let img_url = window.URL.createObjectURL(image);
-    //     //  let html = $(`<div class="post h4 v4"> <img src="${img_url}"> </div>`).fadeIn(500, function () {
-    //          // document.post.reset();
-    //     //  });
-    //      console.log("Image:", image);
-    //      saveImageData(image, to, fromId, origin);
-         
-    //  });
 });
-
-// function saveImageData(image, to, fromId, origin) { // post by will come from $_SESSION['user_id'] value in DAO
-
-//     $.ajax({
-//         type: "POST",
-//         url: "SaveImageDAO.php",
-//         // contentType: false,
-//         processData: false,
-//         data: {
-//             to: to,
-//             from: fromId,
-//             origin: origin,
-//             image: image
-//         },
-//         success: function (response) {
-//             if (response === "true") {
-//                 console.log("Successfully saved post data");
-//                 location.reload();
-//             } else {
-//                 alert("Your post was not saved.");
-//             }
-//         }
-//     });
-
-
-//     return false; // exit function
-// }
 
 // map location posts not working fully 
 $("#loc-post").click(function(){
@@ -134,24 +93,24 @@ $("#loc-post").click(function(){
             //document.post.reset(); 
         });
         $(".wall").prepend(html);
-        // saveTextData(message, to, postDate, html);
+        // saveMapData(message, to, postDate, html);
 
     });
 
     return; // exit function
 });
 
-function saveMapData(post, to, html) { // post by will come from $_SESSION['user_id'] value in DAO
+// function saveMapData(post, to, html) { // post by will come from $_SESSION['user_id'] value in DAO
 
-    $.ajax({
-        type: "POST",
-        url: WallPostsDAO.php,
-        data: "long=" + long + "&lat=" + lat + "&to=" + to + "&date=" + date,
-        success: function () {
-            $(".wall").prepend(html);
-        }
-    });
+//     $.ajax({
+//         type: "POST",
+//         url: WallPostsDAO.php,
+//         data: "long=" + long + "&lat=" + lat + "&to=" + to + "&date=" + date,
+//         success: function () {
+//             $(".wall").prepend(html);
+//         }
+//     });
 
 
-    return false; // exit function
-}
+//     return false; // exit function
+// }

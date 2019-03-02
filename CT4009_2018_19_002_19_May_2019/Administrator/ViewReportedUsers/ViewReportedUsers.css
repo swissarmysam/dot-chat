@@ -24,14 +24,6 @@ h2 {
 }
 
 /* modal box by Hristo Marinov */
-.OptionsBtn,
-button {
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    width: 150px;
-
-}
 
 .modal-box {
     width: 270px;
@@ -54,7 +46,6 @@ input {
 
 input[type="radio"] {
     width: auto;
-    /* grid-area: 1/2;*/
 }
 
 .RadioInputs {

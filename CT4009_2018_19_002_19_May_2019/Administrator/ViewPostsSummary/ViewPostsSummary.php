@@ -18,7 +18,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
 <link rel="stylesheet" type="text/css" media="screen" href="../../inc/css/Global.css" />
 
 <!-- Overwrite and/or add page specific styles -->
-<link rel="stylesheet" type="text/css" media="screen" href="ViewPostsSummary.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="./ViewPostsSummary.css" />
 
 <!-- Load font awesome cdn for icons -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
