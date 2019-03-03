@@ -27,6 +27,14 @@ function getUserList() {
     closeConnection($connection); // close database connection
 }
 
+function viewOwnWall() {
+
+    $id = $_SESSION['user_id'];
+
+    echo "<p><a href='#' id='wall_" . $id . "' class='actionViewUserWall'>View Your Wall</a></p>";
+
+}
+
 // set the session variable to the id of the member whose profile is being interacted with
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {

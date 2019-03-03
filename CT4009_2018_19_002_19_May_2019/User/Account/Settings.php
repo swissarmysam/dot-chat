@@ -65,33 +65,56 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <label>Current Name: </label>
             <?php showCurrentDetail('full_name'); ?>
             <br>
-            <label>New Name</label>
-            <input type="text">
+            <form name="updateName" method="post" action="updateNameDAO.php">
+                <label>New Name</label>
+                <input type="text">
+                <br>
+                <button class="btn btnGreen" type="submit">Update Name</button>
+            </form>
 
             <h4>Update Email Address</h4>
             <label>Current Email: </label>
             <?php showCurrentDetail('email'); ?>
             <br>
-            <label>New Email</label>
-            <input type="email">
+            <form name="updateEmail" method="post" action="updateEmailDAO.php">
+                <label>New Email</label>
+                <input type="email">
+                <br>
+                <button class="btn btnGreen" type="submit">Update Email</button>
+            </form>
             
             <h4>Update Country</h4>
             <label>Current Country: </label>
             <?php showCurrentDetail('country_name'); ?>
             <br>
+            <form name="updateCountry" method="post" action="updateCountryDAO.php">
             <label>New Country</label>
-            <select class="field-text" id="country" name="country">
-                <option class="field-text"></option>
-            </select>
+            <?php 
+                include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script
+                $connection = openConnection(); // connect to database
+                echo '<select class="field-text" id="country" name="country">'; // create select tag with id of country so it can be selected in Register.js
+                $query = mysqli_query($connection, 'SELECT `country_name` FROM `tbl_countries`'); // create query to select record from country_name column
+                if(mysqli_num_rows($query) > 0) { // if a record exists then ...
+                    while($option_row = mysqli_fetch_array($query, MYSQLI_NUM)) { // fetch query result as a numbered array and assign as $option_row
+                        echo '<option class="field-text" name="country_name" value="' . $option_row[0] . '">' . $option_row[0] . '</option>'; // create option tag with returned value from array
+                    }
+                }
+                echo '</select>'; // close select tag
+                closeConnection($connection); // close database connection
+            ?>
+            <br>
+            <button class="btn btnGreen" type="submit">Update Country</button>
+            </form>
             <br>
 
             <h4>Update Password</h4>
+            <form name="updatePassword" method="post" action="updatePasswordDAO.php">
             <label>Current Password</label>
             <input type="password"><br>
             <label>New Password</label>
             <input type="password"><br><br>
-
-            <button id="updateBtn" class="btnGreen">Save Details</button>
+            <button id="updateBtn" class="btnGreen">Update Password</button>
+            </form>
             <br><br><br>
 
             <h3>Deactivate my account</h3>

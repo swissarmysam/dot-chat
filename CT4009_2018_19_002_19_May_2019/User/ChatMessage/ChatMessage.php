@@ -56,7 +56,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
         <!-- Main section -->
         <main>
             <div class="identifier">
-                <h2>Chat</h2>
+                <?php showChatToName(); ?>
             </div>
             <div class="message">
                 <?php showMessages(); ?>

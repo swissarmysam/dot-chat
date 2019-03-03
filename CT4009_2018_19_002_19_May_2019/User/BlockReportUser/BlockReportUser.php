@@ -53,6 +53,8 @@ include('../../inc/lib/php/header.html'); // include standard html head material
         <!-- Main section -->
         <main>
             <h2>User List</h2>
+            
+            <?php viewOwnWall(); ?>
 
             <!-- Table element to list users in database - this will be populated by BlockReportUser.js -->
             <table id="listUsers" class="active">

@@ -1,6 +1,6 @@
 <?php
 
-include_once('/home/s1804867saming/public_html/CT4009_2018_19_002_19_May_2019/inc/lib/php/mysqli_connect.php');
+include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php');
 
 function showMessages() {
 
@@ -27,5 +27,26 @@ function showMessages() {
                         
     }
 }
+
+function showChatToName() {
+
+    $connection = openConnection(); // connect to database
+
+    $id = $_SESSION['other_id'];
+
+    $sql = "SELECT `full_name` FROM `tbl_members` WHERE `user_id`=$id";
+  
+    $query = mysqli_query($connection, $sql); // create query to select record from country_name column
+
+    if(mysqli_num_rows($query) > 0) { // if a record exists then ...
+      $option_row = mysqli_fetch_array($query, MYSQLI_NUM);
+      echo "<h3>Chatting with " . $option_row[0] . "</h3>";
+    }
+
+    closeConnection($connection); // close database connection
+                        
+}
+
+
 
 ?>

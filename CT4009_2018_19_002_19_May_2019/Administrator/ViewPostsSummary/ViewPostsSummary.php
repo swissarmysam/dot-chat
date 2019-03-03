@@ -59,7 +59,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <h2>Post Statistics and Management</h2>
 
             <!-- Table element to show post statistics -->
-            <table id="listUsers" class="active">
+            <table id="postStats" class="active">
                 <tr>
                     <th><b>Type</b></th>
                     <th><b>Result</b></th>

@@ -2,6 +2,8 @@
 .DS_Store
 desktop.ini
 
-.gdoc
+*.gdoc
 dwsync.xml
 _notes
+error_log
+*.sql

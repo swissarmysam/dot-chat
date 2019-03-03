@@ -61,6 +61,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                     <li id="loc-post"><i class=" fas fa-map"></i>Location</li> <!-- Location Posts action -->
                 </ul>
             </nav>
+            <?php showWallOwner(); ?>
         </div>
         <!-- Wall action secondary navigation ends -->
 
