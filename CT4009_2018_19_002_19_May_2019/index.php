@@ -51,7 +51,13 @@ include('inc/lib/php/header.html');
 
                 <h2>Member Login</h2>
 
-                <div id="warning"></div>
+                <?php if(isset($_GET['authCheck']) && $_GET['authCheck'] == 'false'): ?>
+                    <div class="warning"><p>Sorry. Your email and/or password was incorrect.</p></div>
+                <?php endif; ?> 
+
+                 <?php if(isset($_GET['pwReset']) && $_GET['pwReset'] == 'success'): ?>
+                    <div class="success"><p>Your password has been reset. Please try signing in with your new password.</p></div>
+                <?php endif; ?> 
                 
                 <!-- Memeber login form begins -->
                 <form id="frmUserLogin" method="post" action="Login/LoginDAO.php">

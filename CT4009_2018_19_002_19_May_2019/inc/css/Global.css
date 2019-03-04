@@ -146,9 +146,14 @@ option {
     font-family: 'Cabin', sans-serif;
 }
 
-div#warning {
+div.warning > p {
     font-family: 'Cabin', sans-serif;
     color: red;
+}
+
+div.success>p {
+    font-family: 'Cabin', sans-serif;
+    color: green;
 }
 
 /* Standardised form, input and button styling */

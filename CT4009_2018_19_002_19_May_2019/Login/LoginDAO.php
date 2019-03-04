@@ -26,13 +26,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user_level'] = $user_level; // used to make sure correct links are shared to user and that no destructive action can be carried out
                 $_SESSION['full_name'] = $full_name; // used to display welcome message
                 $_SESSION['country_name'] = $country_name; // used to store data about post location for heatmap
+                // setcookie("user_id", $user_id, time() + 3600);
+                // setcookie("user_name", $full_name, time() + 3600);
                 closeConnection($connection);
 
                 header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/User/BlockReportUser/BlockReportUser.php"); // redirect user to defacto dashboard
                 ob_end_clean();
                 exit();
             } else {
-                 header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/error.php"); // return to login page
+                 header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/index.php?authCheck=false"); // return to login page
                  closeConnection($connection);
                  exit();
             }
@@ -40,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
 
            // return false; 
-           header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/error.php"); // display error page
+           header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/index.php?authCheck=false"); // display error page
            closeConnection($connection);
            exit();
           

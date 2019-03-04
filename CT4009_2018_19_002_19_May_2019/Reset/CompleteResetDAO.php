@@ -18,7 +18,7 @@ $query = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 if(mysqli_affected_rows($connection) == 1) {
 
     $expire = mysqli_query($connection, "UPDATE `tbl_password_reset_request` SET `expired`=1 WHERE `user_id`=$user_id") or die(mysqli_error($connection));
-    header("Location: ../index.php");
+    header("Location: ../index.php?pwReset=success");
     exit;
 
 } else {

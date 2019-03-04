@@ -74,7 +74,7 @@ include('../inc/lib/php/header.html'); // include header file
 
                         <!-- Location -->
                         <?php 
-                            include_once('/home/s1804867saming/public_html/CT4009_2018_19_002_19_May_2019/inc/lib/php/mysqli_connect.php'); // get database connection script
+                            include_once(__DIR__ . '/../inc/lib/php/mysqli_connect.php'); // get database connection script
                             $connection = openConnection(); // connect to database
                             echo '<label for="country" class="field-label">Country</label>'; // create label for select/option tag
                             echo '<select class="field-text" id="country" name="country">'; // create select tag with id of country so it can be selected in Register.js
