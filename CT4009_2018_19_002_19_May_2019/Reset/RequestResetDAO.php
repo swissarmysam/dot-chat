@@ -50,14 +50,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             mail($user_email, $subject, $body);
 
             closeConnection($connection);
-            header('Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Reset/RequestSuccess.php');
+            header('Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Reset/ResetStatus.php?requestResult=received');
             exit();
 
         } else {
 
            // return false; 
            closeConnection($connection);
-           header('Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Reset/RequestFail.php');
+           header('Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Reset/ResetStatus.php?requestResult=not-found');
            exit();
           
         }

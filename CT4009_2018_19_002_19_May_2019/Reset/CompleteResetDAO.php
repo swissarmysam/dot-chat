@@ -23,7 +23,7 @@ if(mysqli_affected_rows($connection) == 1) {
 
 } else {
 
-    header("Location: ./ResetFail.php");
+    header("Location: ./ResetStatus.php?resetResult=fail");
     exit;
 
 }

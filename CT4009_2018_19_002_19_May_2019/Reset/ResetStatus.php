@@ -4,7 +4,7 @@
 
 require('../inc/lib/php/config.inc.php');
 
-$page_title = "Reset Failed - (dot)chat";
+$page_title = "Reset Status - (dot)chat";
 include('../inc/lib/php/header.html');
 
 ?>
@@ -49,11 +49,25 @@ include('../inc/lib/php/header.html');
             <!-- Container div begins -->
             <div class="container">
 
-                <h2>Password Reset didn't work</h2>
+                <?php if(isset($_GET['resetResult']) && $_GET['resetResult'] == 'fail'): ?>
+                    <h2>Password Reset Failed</h2>
 
-                <p>We recommend trying a <a href="./RequestReset.php">new password reset</a>.</p>
+                    <p class="warning">We recommend trying a <a href="./RequestReset.php">new password reset</a>.</p>
 
-                <p>If this doesn't work, please contact <a href="#">support</a> with details of your full name and email address.</p>
+                    <p class="warning">If this doesn't work, please contact <a href="#">support</a> with details of your full name and email address.</p>
+                <?php endif; ?>
+
+                <?php if(isset($_GET['requestResult']) && $_GET['requestResult'] == 'received'): ?>
+                    <h2>We got your reset request!</h2>
+
+                    <p class="success">Your password reset request was successful. Please check your email inbox for the reset link.</p>
+                <?php endif; ?>
+                
+                <?php if(isset($_GET['requestResult']) && $_GET['requestResult'] == 'not-found'): ?>
+                    <h2>Request Failed</h2>
+
+                    <p class="warning">The email you entered was not found in our records. If this is an error, please contact <a href="#">support</a>.</p>
+                <?php endif; ?>
 
             </div>
             <!-- container div ends -->

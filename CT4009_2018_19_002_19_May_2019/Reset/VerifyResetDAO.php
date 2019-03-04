@@ -32,7 +32,7 @@ if(@mysqli_num_rows($query) == 1) {
     header('Location: CompleteReset.php');
     exit;
 } else {
-    header('Location: ResetFail.php');
+    header('Location: ./ResetStatus.php?resetResult=fail');
     exit;
 }
 
