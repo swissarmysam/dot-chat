@@ -68,6 +68,22 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             </table>
         </main>
 
+         <!-- The Modal -->
+        <div class="modal-container">
+            <div class="modal-box">
+                <form class="reportReasonForm">
+                <span class="close">X</span>
+                    <div class="RadioInputs">
+                        <input type="radio" name="report-type" value="1"><p>Posting inappropriate content</p><br>
+                        <input type="radio" name="report-type" value="2"><p>Fake Account</p><br>
+                        <input type="radio" name="report-type" value="3"><p>Targetted Harrassment</p><br>
+                        <input type="radio" name="report-type" value="4"><p>Abusive/Harmful Behaviour</p><br>
+                    </div>
+                    <button class="btn btnGreen" id="SubmitBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <!-- Load javascript files -->

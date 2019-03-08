@@ -84,6 +84,8 @@ $('.actionChatMessage').click(function () {
 });
 
 //Event handler for each "Report User" link in the table created. This was intended to add +1 to number of reports against user object
+let modal = $(".modal-container"); // select the modal container
+
 $('.actionReportUser').click(function () {
     let item = this; // this is the link being clicked
     let setReportID = getUserID(item); // get the member id as an integer
@@ -91,9 +93,35 @@ $('.actionReportUser').click(function () {
         if (status == true) {
 
             sessionStorage.setItem('reportID', setReportID);
-            console.log("Redirecting");
-            // modal will pop up from here
+            modal.css("display", "block");
             
         }
     });   
 });
+
+$(".close").on("click", function () { // when the close button is clicked
+    modal.css("display", "none"); // make the modal invisible
+});
+
+function submitReport() {
+
+    let type = $('input[name=report-type]:checked').val(); // get the value from the radio input
+    let user = sessionStorage.getItem('reportID'); // get the user id so user can be found in members database
+
+    $.ajax({
+        type: "POST",
+        url: "SendReportDAO.php",
+        data: {
+            uid: user,
+            type: type
+        },
+        cache: false,
+        success: function () {
+            alert("Report action successful");
+            console.log(type, user);
+            location.reload(true);
+        }
+    }); //
+}
+
+$('#SubmitBtn').on("click", submitReport);
