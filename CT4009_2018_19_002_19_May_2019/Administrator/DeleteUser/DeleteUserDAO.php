@@ -1,6 +1,10 @@
 <?php
 
-// send email after account has been deleted to user advising that account is no longer in database 
+/* ************************************************************************************ */
+/* * DeleteUserDAO.php handles account delete requests  and has two functions.        * */
+/* * showMemberCount() counts the number of records in tbl_members and                * */
+/* * displayUserRecords() populates the table with member records and a delete option * */
+/* ************************************************************************************ */
 
 include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
 
@@ -42,21 +46,21 @@ function displayUserRecords() {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
         
-    $id = $_POST['id'];
+    $id = $_POST['id']; // get user id from request
 
     $connection = openConnection(); // connect to database
     $query = mysqli_query($connection, "SELECT * FROM `tbl_members` WHERE `user_id`='$id'"); // create query to delete record from tbl_members
 
     if(mysqli_num_rows($query) > 0) { // check if row matches query ...
 
-        $result = mysqli_query($connection, "DELETE FROM `tbl_members` WHERE `user_id`='$id'");
-        echo 1;
+        $result = mysqli_query($connection, "DELETE FROM `tbl_members` WHERE `user_id`='$id'"); // remove the record
+        echo 1; // success response
         closeConnection($connection);
         exit();
 
     } else {
 
-        echo 0;
+        echo 0; // fail response
         closeConnection($connection);
         exit();
 

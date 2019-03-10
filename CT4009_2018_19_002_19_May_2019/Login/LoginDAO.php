@@ -1,5 +1,12 @@
 <?php
 
+/* ******************************************************************************************************* */
+/* * LoginDAO.php handles user and administrator logins:                                                 * */
+/* * - It sanitizes the submission and checks that a record exists in tbl_member                         * */
+/* * - It checks that the acc_active value is set to 1                                                   * */
+/* * - Check that the user is not banned                                                                 * */
+/* ******************************************************************************************************* */
+
 include(__DIR__ . '/../inc/lib/php/mysqli_connect.php');
 
 $connection = openConnection();
@@ -21,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             list($user_id, $full_name, $country_name, $hash_pw, $user_level) = mysqli_fetch_array($result, MYSQLI_NUM);
             mysqli_free_result($result);
             
-            if(password_verify($password, $hash_pw)) {
+            if(password_verify($password, $hash_pw)) { // check that hashed passwords match
                 $_SESSION['user_id'] = $user_id; // used to record user who is signed and for site activity
                 $_SESSION['user_level'] = $user_level; // used to make sure correct links are shared to user and that no destructive action can be carried out
                 $_SESSION['full_name'] = $full_name; // used to display welcome message
@@ -33,8 +40,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/User/BlockReportUser/BlockReportUser.php"); // redirect user to defacto dashboard
                 ob_end_clean();
                 exit();
-            } else {
-                 header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/index.php?authCheck=false"); // return to login page
+            } else { // return to login page with query string authCheck=false
+                 header("Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/index.php?authCheck=false"); 
                  closeConnection($connection);
                  exit();
             }

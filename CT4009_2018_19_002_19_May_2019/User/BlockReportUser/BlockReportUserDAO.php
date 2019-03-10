@@ -1,6 +1,8 @@
 <?php
 
-// need to add following/follow action
+/* *************************************************************************************** */
+/* * BlockReportUserDAO.php handles:                                                     * */
+/* *************************************************************************************** */
 
 include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
 

@@ -12,7 +12,7 @@
 
     session_destroy(); // Destroy the session
 
-    setcookie(session_name(),'', time() - 3600); // Destroy the cookie
+    setcookie(session_name(),'', time() - 3600); // Destroy the cookie PHPSESSID
 
 ?>
 

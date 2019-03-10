@@ -1,6 +1,6 @@
 <?php 
 
-// the login page is the index page for the website as users need to be logged in to utilise its functionality
+// This page displays a message to the user dependent on the result of the reset request
 
 require('../inc/lib/php/config.inc.php');
 
@@ -48,24 +48,20 @@ include('../inc/lib/php/header.html');
 
             <!-- Container div begins -->
             <div class="container">
-
+                <!-- General error if reset process fails for unverified reason-->
                 <?php if(isset($_GET['resetResult']) && $_GET['resetResult'] == 'fail'): ?>
                     <h2>Password Reset Failed</h2>
-
                     <p class="warning">We recommend trying a <a href="./RequestReset.php">new password reset</a>.</p>
-
                     <p class="warning">If this doesn't work, please contact <a href="#">support</a> with details of your full name and email address.</p>
                 <?php endif; ?>
-
+                <!-- reset request successful -->
                 <?php if(isset($_GET['requestResult']) && $_GET['requestResult'] == 'received'): ?>
                     <h2>We got your reset request!</h2>
-
                     <p class="success">Your password reset request was successful. Please check your email inbox for the reset link.</p>
                 <?php endif; ?>
-                
+                <!-- reset request failed because record not found -->
                 <?php if(isset($_GET['requestResult']) && $_GET['requestResult'] == 'not-found'): ?>
                     <h2>Request Failed</h2>
-
                     <p class="warning">The email you entered was not found in our records. If this is an error, please contact <a href="#">support</a>.</p>
                 <?php endif; ?>
 

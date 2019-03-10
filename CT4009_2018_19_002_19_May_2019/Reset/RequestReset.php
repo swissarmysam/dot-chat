@@ -1,7 +1,5 @@
 <?php 
 
-// the login page is the index page for the website as users need to be logged in to utilise its functionality
-
 require('../inc/lib/php/config.inc.php');
 
 $page_title = "Password Reset - (dot)chat";
@@ -9,7 +7,7 @@ include('../inc/lib/php/header.html');
 
 ?>
 
-<!-- Build the rest of the html for login page -->
+<!-- Build the rest of the html for RequestReset page -->
 
    <!-- Remove default browser styling -->
     <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/Normalize.css" />
@@ -53,7 +51,7 @@ include('../inc/lib/php/header.html');
 
                 <div id="warning"></div>
                 
-                <!-- Memeber login form begins -->
+                <!-- Reset request form -->
                 <form id="frmRequestReset" method="post" action="./RequestResetDAO.php">
 
                     <!-- form-container div is a nested grid for form layout -->
@@ -66,7 +64,7 @@ include('../inc/lib/php/header.html');
                             autocorrect="off" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                             required="required">
                
-                        <!-- submit form button handled by js -->
+                        <!-- submit form button handled by php script -->
                         <button id="pwReset" class="btn btnGreen" type="submit">Request Reset</button>
                     </div>
                     <!-- form-container div ends -->

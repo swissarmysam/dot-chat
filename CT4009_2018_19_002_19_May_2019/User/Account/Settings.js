@@ -1,7 +1,9 @@
-/* ************************************ */
-/*                                      */
-/*                                      */
-/* ************************************ */
+/* ******************************************************************************************************* */
+/* * ViewReportedUsersDAO.php handles the following:                                                     * */
+/* * - getReportedUserList() selects reported info across three tables and displays in a formatted table * */
+/* * - depending on the result of the switch there are the functions which handle the request.           * */
+/* *  The functions are warning(), tempBan(), totalBan(), and deleteReport()                             * */
+/* ******************************************************************************************************* */
 
 //Event handler for each "Delete User" action
 $('#deactivateBtn').click(function () { // when clicked

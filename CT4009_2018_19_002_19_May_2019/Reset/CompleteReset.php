@@ -1,6 +1,6 @@
 <?php 
 
-/* the login page is the index page for the website as users need to be logged in to utilise its functionality */
+/* This page allows a user to enter a new password to complete a password reset */
 
 require('../inc/lib/php/config.inc.php'); // require config.inc file as it contains error handling
 

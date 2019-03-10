@@ -1,11 +1,19 @@
 <?php
 
+/* ******************************************************************************************************* */
+/* * ViewReportedUsersDAO.php handles the following:                                                     * */
+/* * - getReportedUserList() selects reported info across three tables and displays in a formatted table * */
+/* * - depending on the result of the switch there are the functions which handle the request.           * */
+/* *  The functions are warning(), tempBan(), totalBan(), and deleteReport()                             * */
+/* ******************************************************************************************************* */
+
 include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
 
 function getReportedUserList() {
 
     $connection = openConnection(); // connect to database
-    echo '<tr class="userEntry">'; // create select tag with id of country so it can be selected in Register.js
+    echo '<tr class="userEntry">'; // create a table row
+    // select data from tbl_reports, tbl_report_reasons and tbl_members using a JOIN to display data
     $sql = "SELECT tbl_reports.report_id, tbl_members.full_name, tbl_report_reasons.reason_desc, tbl_reports.date_time_reported, tbl_reports.user_id
             FROM tbl_reports JOIN tbl_members ON tbl_reports.user_id=tbl_members.user_id 
             JOIN tbl_report_reasons ON tbl_reports.report_reason=tbl_report_reasons.reason_id
@@ -13,28 +21,28 @@ function getReportedUserList() {
     $query = mysqli_query($connection, $sql); // create query to select record from user_id and full_name columns
     if(mysqli_num_rows($query) > 0) { // if a record exists then...
         while($option_row = mysqli_fetch_array($query, MYSQLI_NUM)) { // fetch query result as a numbered array and assign as $option_row
-            // Ref: $option_row[0] = 'user_id', $option_row[1] = 'full_name', $option_row[2] = 'acc_active'
+            // Ref: $option_row[0] = 'report_id', $option_row[1] = 'full_name', $option_row[2] = 'reason_desc' etc
             echo "<td>" . $option_row[0] . "</td>"; // create table cell user_id as id and report_id as a report number
             echo "<td>" . $option_row[1] . "</td>"; // create table cell with reported users name
             echo "<td>" . $option_row[2] . "</a></td>"; // create table cell with report description
             echo "<td>" . $option_row[3] . "</a></td>"; // create table cell with report date
             echo "<td id='" . $option_row[4] . "'><a href='#' class='actionManageReport'>Manage Report</a></td>"; // create table cell with handle report options
-            echo '</tr>'; // close select tag
+            echo '</tr>'; // close the tag
         }
     }
     closeConnection($connection); // close database connection
 
 }
 
-function warning($id) {
+function warning($id) { // user id passed as argument
 
     $connection = openConnection(); // connect to database
 
-    $query = mysqli_query($connection, "SELECT `full_name`, `email` FROM `tbl_members` WHERE `user_id`=$id"); // create query to delete record from tbl_posts
+    $query = mysqli_query($connection, "SELECT `full_name`, `email` FROM `tbl_members` WHERE `user_id`=$id"); // create to get full name and email
 
     if(mysqli_num_rows($query) > 0) { // check if row matches query ...
 
-        list($full_name, $email) = mysqli_fetch_array($query, MYSQLI_NUM);
+        list($full_name, $email) = mysqli_fetch_array($query, MYSQLI_NUM); // shorthand to assign result to var ex. $full_name = result[0]
 
         $to = $email; 
         $subject = "A user has reported you on (dot)chat";

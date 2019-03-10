@@ -1,7 +1,5 @@
 <?php 
 
-// the login page is the index page for the website as users need to be logged in to utilise its functionality
-
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 // include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
 require('./BlockReportUserDAO.php');
@@ -74,6 +72,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                 <form class="reportReasonForm">
                 <span class="close">X</span>
                     <div class="RadioInputs">
+                        <!-- Report type options -->
                         <input type="radio" name="report-type" value="1"><p>Posting inappropriate content</p><br>
                         <input type="radio" name="report-type" value="2"><p>Fake Account</p><br>
                         <input type="radio" name="report-type" value="3"><p>Targetted Harrassment</p><br>

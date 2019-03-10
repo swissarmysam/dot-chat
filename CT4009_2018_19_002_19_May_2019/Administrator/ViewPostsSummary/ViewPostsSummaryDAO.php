@@ -1,6 +1,10 @@
 <?php
 
-/* This script handles the database requests for ViewPostsSummary page */
+/* ************************************************************************************ */
+/* * ViewPostsSummarayDAO.php has handles a few tasks. getPostCount() counts the post * */
+/* * records, getPostDetails() displays the post in a formatted table. It is also     * */
+/* * possible to delete posts from this table when an ajax request is received        * */
+/* ************************************************************************************ */
 
  include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
 
