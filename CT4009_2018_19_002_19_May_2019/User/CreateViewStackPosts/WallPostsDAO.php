@@ -1,6 +1,11 @@
 <?php
 
-include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php');
+/* *************************************************************************************** */
+/* * WallPostsDAO.php handles:                                                           * */
+/* * - saves text messages to posts table                                                * */
+/* *************************************************************************************** */
+
+include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // load db script
 
 /* Function to save data to tbl_posts */
 
@@ -11,14 +16,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // only save record if submit method 
     // Set variable values from dataString in Register.js and use use real_escape_string to prevent SQL injection with special characters
     $to = mysqli_real_escape_string($connection, $_POST['to']); // pass db connection as parameter and get wall id where post is being made
     $from = mysqli_real_escape_string($connection, $_POST['from']);  // user id who posted to the wall
-    $origin = mysqli_real_escape_string($connection, $_POST['origin']);
+    $origin = mysqli_real_escape_string($connection, $_POST['origin']); // the location of the user who is making the post
 
     // check if the POST data was empty and set the variable to NULL in DB table to prevent SQL query warnings. This means that one query can be used to add all data to the table.
-    $contents = (empty($_POST['contents']) ? "" : mysqli_real_escape_string($connection, $_POST['contents'])); // pass db connection as parameter and pass password with using password_hash function using bcrypt algorithm
-    $title = (empty($_POST['title']) ? "NULL" : mysqli_real_escape_string($connection, $_POST['title']));
+    $contents = (empty($_POST['contents']) ? "" : mysqli_real_escape_string($connection, htmlspecialchars($_POST['contents']))); // use htmlspecialchars to prevent Cross Site Scripting (XSS)
+    $title = (empty($_POST['title']) ? "NULL" : mysqli_real_escape_string($connection, htmlspecialchars($_POST['title'])));
 
-    $image = (empty($_POST['image']) ? "NULL" : $_POST['image']);
+    $image = (empty($_POST['image']) ? "NULL" : $_POST['image']); // put NULL in table if no image is present otherwise it is handled by SaveImageDAO.php
 
+    // the datetime is created server side so no sanitation is needed
     $timestamp = date('Y-m-d H:i:s');
     $set_date = strtotime($timestamp);
     $date = date("Y-m-d H:i:s", $set_date);

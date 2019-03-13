@@ -1,6 +1,6 @@
 <?php 
 
-// the login page is the index page for the website as users need to be logged in to utilise its functionality
+// the wall post page is a public location to store text, images and locations of interest
 
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 // include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
@@ -96,10 +96,10 @@ include('../../inc/lib/php/header.html'); // include standard html head material
     </div>
     <!-- wrapper div ends -->
 
-    <!-- Wall section begins - blank as elements and classes are inserted by JS -->
+    <!-- Wall section begins - blank as elements and classes are inserted by php -->
     <section class="wall">
 
-        <?php showWallPosts(); ?>
+        <?php showWallPosts(); ?> 
 
     </section>
     <!-- Wall section ends -->

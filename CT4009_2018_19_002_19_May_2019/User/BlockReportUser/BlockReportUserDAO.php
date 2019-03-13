@@ -2,6 +2,9 @@
 
 /* *************************************************************************************** */
 /* * BlockReportUserDAO.php handles:                                                     * */
+/* * - display a list of registered members as a table                                   * */
+/* * - Add a link for signed in user to view own wall                                    * */
+/* * - As it is the dashboard, it gets user id of member being interacted with           * */
 /* *************************************************************************************** */
 
 include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // get database connection script if not already loaded
@@ -31,9 +34,9 @@ function getUserList() {
 
 function viewOwnWall() {
 
-    $id = $_SESSION['user_id'];
+    $id = $_SESSION['user_id']; // signed in user id
 
-    echo "<p><a href='#' id='wall_" . $id . "' class='actionViewUserWall'>View Your Wall</a></p>";
+    echo "<p><a href='#' id='wall_" . $id . "' class='actionViewUserWall'>View Your Wall</a></p>"; // add link to view own wall
 
 }
 
@@ -41,11 +44,13 @@ function viewOwnWall() {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    session_start();
+    // this variable is set for user interactions such as chat messages, wall posts and reporting
+
+    session_start(); // start session to set session id
 
     $connection = openConnection();
         
-    $id = $_POST['other_id'];
+    $id = $_POST['other_id']; // id of user being interacted with
     
     $_SESSION['other_id'] = $id; 
             

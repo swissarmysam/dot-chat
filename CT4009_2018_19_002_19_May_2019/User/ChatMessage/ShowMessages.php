@@ -1,16 +1,17 @@
 <?php
 
-include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php');
+include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // load db script
 
 function showMessages() {
 
-    // @session_start();
+    // session already started in another file
     
     $connection = openConnection(); // connect to database
 
-    $chat_id = $_SESSION['other_id'];
-    $user_id = $_SESSION['user_id'];
+    $chat_id = $_SESSION['other_id']; // user being messaged
+    $user_id = $_SESSION['user_id']; // the user who is signed in
 
+    // A multiple join to display the correct data to users. It gets the message contents, datetime and full name.
     $sql = "SELECT tbl_messages.msg_text, tbl_messages.msg_date_time, tbl_members.full_name 
             FROM tbl_messages INNER JOIN tbl_members ON tbl_messages.msg_from_id=tbl_members.user_id 
             WHERE `msg_to_id`=$chat_id AND msg_from_id=$user_id";
@@ -19,7 +20,7 @@ function showMessages() {
     if(mysqli_num_rows($query) > 0) { // if a record exists then ...
         while($option_row = mysqli_fetch_array($query, MYSQLI_NUM)) { // fetch query result as a numbered array and assign as $option_row
           
-            echo "<script>$('.message').prepend(`<p class='msg'>" . $option_row[0] . "<br><br>  Sent: " . $option_row[1] . " by " . $option_row[2] . " </p>`)</script>";
+            echo "<p class='msg'>" . $option_row[0] . "<br><br>  Sent: " . $option_row[1] . " by " . $option_row[2] . " </p>";
         
     }
 
@@ -32,15 +33,15 @@ function showChatToName() {
 
     $connection = openConnection(); // connect to database
 
-    $id = $_SESSION['other_id'];
+    $id = $_SESSION['other_id']; // get id of user being interacted with
 
-    $sql = "SELECT `full_name` FROM `tbl_members` WHERE `user_id`=$id";
+    $sql = "SELECT `full_name` FROM `tbl_members` WHERE `user_id`=$id"; // get the users name
   
     $query = mysqli_query($connection, $sql); // create query to select record from country_name column
 
     if(mysqli_num_rows($query) > 0) { // if a record exists then ...
       $option_row = mysqli_fetch_array($query, MYSQLI_NUM);
-      echo "<h3>Chatting with " . $option_row[0] . "</h3>";
+      echo "<h3>Chatting with " . $option_row[0] . "</h3>"; // display their name
     }
 
     closeConnection($connection); // close database connection

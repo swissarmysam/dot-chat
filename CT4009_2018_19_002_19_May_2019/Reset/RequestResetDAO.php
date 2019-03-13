@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(isset($_POST['email']) && !empty($_POST['email'])) { // if a value exists in sent data
         // Set variable values
-        $email = mysqli_real_escape_string($connection, $_POST['email']);
+        $email = mysqli_real_escape_string($connection, htmlspecialchars($_POST['email']));
 
         $result = mysqli_query($connection, "SELECT `user_id`, `email` FROM `tbl_members` WHERE email='$email'") or die(mysqli_error($connection));
 

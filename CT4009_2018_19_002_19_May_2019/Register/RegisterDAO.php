@@ -38,9 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // only save record if submit method 
     $connection = openConnection(); // open database connection set in mysqli_connect.php
 
     // Set variable values from dataString in Register.js and use use real_escape_string to prevent SQL injection with special characters
-    $full_name = mysqli_real_escape_string($connection, $_POST['full_name']); // pass db connection as parameter and get full name 
+    $full_name = mysqli_real_escape_string($connection, htmlspecialchars($_POST['full_name'])); // pass db connection as parameter and get full name 
     $country = $_POST['country'];  // user country (will be used to generate heat maps)
-    $email = mysqli_real_escape_string($connection,$_POST['email']); // pass db connection as parameter and get email address
+    $email = mysqli_real_escape_string($connection, htmlspecialchars($_POST['email'])); // pass db connection as parameter and get email address
     $pw = mysqli_real_escape_string($connection,(password_hash($_POST['password'], PASSWORD_DEFAULT))); // pass db connection as parameter and pass password with using password_hash function using bcrypt algorithm
     $date = date('Y-m-d'); // get the date to be stored as registration date against user
 
