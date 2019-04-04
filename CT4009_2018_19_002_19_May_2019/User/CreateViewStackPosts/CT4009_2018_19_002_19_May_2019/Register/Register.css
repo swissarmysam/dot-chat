@@ -1,0 +1,74 @@
+/* Styling for User Registration Page */
+
+/* Add border to all elements for troubleshooting */
+/* * {   
+     border: solid red 1px; 
+} */
+
+/* add min-height to stop vertical scroll appearing */
+.wrapper {
+     min-height: 100vh; 
+}
+
+/* Position member registration h2 header and accountExists link */
+
+h2, p#accountExists {
+    text-align: center;
+}
+
+div#warning {
+    text-align: center;
+}
+
+form#userRegisterForm {
+    /* position element relative to its starting position and calculate rough center position */
+    position: relative;
+    width: calc((100vw/2) + 10%);
+}
+
+/* Position footer contents */
+footer > p { /* select footer children p tags */
+    text-align: center;
+}
+
+/* Password complexity styling */
+
+meter {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    margin: 0 auto 1em;
+    width: 100%;
+    height: 1em;
+
+    border-radius: 20px;
+}
+
+/* Reset default appearance - Applicable only to Firefox */
+meter::-moz-meter-bar {
+    background: none;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Assign colours to meter values indicative of password strength */
+meter[value="0"] {
+    background: darkred; /* Bad */
+}
+
+meter[value="1"] {
+    background: red; /* Weak */
+}
+
+meter[value="2"] {
+    background: orange; /* Okay */
+}
+
+meter[value="3"] {
+    background: yellow; /* Good */
+}
+
+meter[value="4"] {
+    background: green; /* Strong */
+}

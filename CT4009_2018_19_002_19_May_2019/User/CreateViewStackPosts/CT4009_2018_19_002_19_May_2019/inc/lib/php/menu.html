@@ -1,0 +1,35 @@
+<!-- Build the menu based on user level and session -->
+<!-- Primary navigation section -->
+<nav id="main-nav">
+    <ul>
+        <?php 
+        // This builds the menu based on the user_level of the visitor - if not logged in, std or admin user
+
+        // Display links dependent on login status
+        if(isset($_SESSION['user_id'])) { // if any member user is logged in
+            echo '
+                <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/User/Account/Settings.php">Account</a></li>
+                <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/User/BlockReportUser/BlockReportUser.php">Community</a></li>
+                <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/User/CreateViewStackPosts/WallPosts.php">Stack</a></li>
+                <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/User/ChatMessage/ChatMessage.php">Chat</a></li>
+                ';
+
+            if($_SESSION['user_level'] == 1) { // add the following links if the user_level is admin
+                echo ' 
+                    <br>
+                    <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Administrator/ViewPostsSummary/ViewPostsSummary.php">Statistics</a></li>
+                    <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Administrator/ViewReportedUsers/ViewReportedUsers.php">Reported Users</a></li>
+                    <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Administrator/DeleteUser/DeleteUser.php">Delete User</a></li>
+                    ';
+            }
+        } else { // If a user is not logged in display login and register links
+            echo '
+                <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Register/Register.php">Register</a></li>
+                <li><a href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/index.php">Login</a></li>
+            ';
+            
+        }
+        ?>
+        <!-- Primary navigation section ends -->
+    </ul>
+</nav>

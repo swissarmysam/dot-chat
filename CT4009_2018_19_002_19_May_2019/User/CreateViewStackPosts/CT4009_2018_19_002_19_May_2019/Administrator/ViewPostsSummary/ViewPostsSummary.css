@@ -1,0 +1,53 @@
+/* page specific styles for view posts summary page */
+
+table {
+    margin-top: 5%;
+    /* assign fixed width so table can be centered with margins */
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    /* add 2px solid border using css variable */
+    border: 2px var(--main-colour-four) solid;
+}
+
+table#postStats {
+    width: 40%;
+}
+
+table#managePosts {
+    /* add margin to bottom of table */
+    margin-bottom: 5%;
+    width: 70%;
+} 
+
+/* target #managePosts table child thead */
+table#managePosts > thead {
+    position: sticky; /* make thead position stick so header is always visible */
+}
+
+/* target #managePosts table child tbody */
+/* (HTML table with 100% width, 2013) */
+table#managePosts > tbody{
+    height: 450px; /* give fixed height for scrollbar to appear */
+    display: inline-block; /* display as inline-block */
+    overflow-y: auto; /* make scroll visible if needed */
+}
+
+th, td {
+    padding: 15px; /* add padding to cell contents */
+    text-align: center;
+}
+
+img { /* overwrite global image size for table contents */
+    max-width: 100px;
+    max-height: 50px;
+}
+
+.hidden {
+    display: none; /* hide any element with this class */
+}
+
+.active {
+    display: block; /* make element visible when this class is added */
+}
+

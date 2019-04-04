@@ -1,0 +1,10 @@
+<!-- Footer closes html content (not wrapper) so js can be imported then flushes buffer -->
+
+</body>
+</html>
+
+<?php 
+
+ob_end_flush(); // Flush the output buffer - temporary memory - after the page completes building and is displayed in browser
+
+?>
