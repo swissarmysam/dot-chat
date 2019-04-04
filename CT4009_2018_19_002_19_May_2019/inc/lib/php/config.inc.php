@@ -3,9 +3,6 @@
 
 /* This site was created by:
 * - Samuel Rampling no. 1804867 
-* - Hristo Marinov no.
-* - Ben Hewlett no.
-* as a group submission for:
 * - CT4009 002 Assignment
 * Built in 2019
 */

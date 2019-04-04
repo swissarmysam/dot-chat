@@ -21,11 +21,14 @@ include('../../inc/lib/php/header.html'); // include standard html head material
 <!-- Overwrite and/or add page specific styles -->
 <link rel="stylesheet" type="text/css" media="screen" href="WallPosts.css" />
 
+<!-- Font Awesome icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 <!-- Import JS libraries -->
 
 <!-- jQuery init -->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
 <!-- End import -->
 </head>
@@ -99,7 +102,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
     <!-- Wall section begins - blank as elements and classes are inserted by php -->
     <section class="wall">
 
-        <?php showWallPosts(); ?> 
+        <?php showWallPosts(); ?>
 
     </section>
     <!-- Wall section ends -->
@@ -107,5 +110,6 @@ include('../../inc/lib/php/header.html'); // include standard html head material
 
     <!-- Load javascript files -->
     <script src="./WallPosts.js"></script>
+    <script src="./advert.js"></script>
 
     <?php include('../../inc/lib/php/footer.html'); ?>

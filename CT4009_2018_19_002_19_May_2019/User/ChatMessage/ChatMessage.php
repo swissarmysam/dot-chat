@@ -1,6 +1,6 @@
 <?php 
 
-// this page displays messages between signed in user and selected member
+// the login page is the index page for the website as users need to be logged in to utilise its functionality
 
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 // include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
@@ -11,7 +11,7 @@ $page_title = "Chat - (dot)chat"; // set web page title
 include('../../inc/lib/php/header.html'); // include standard html head material 
 
 ?>
-<!-- Build the rest of the html for chat page -->
+<!-- Build the rest of the html for login page -->
 <!-- Remove default browser styling -->
 <link rel="stylesheet" type="text/css" media="screen" href="../../inc/css/Normalize.css" />
 
@@ -56,16 +56,16 @@ include('../../inc/lib/php/header.html'); // include standard html head material
         <!-- Main section -->
         <main>
             <div class="identifier">
-                <?php showChatToName(); ?> <!-- identify user who is being messaged -->
+                <?php showChatToName(); ?>
             </div>
             <div class="message">
-                <?php showMessages(); ?> <!-- Display messages already made between the two users -->
+                <?php showMessages(); ?>
             </div>
             <div class="text">
                 <form method="post">
                     <textarea id="msg_contents" type="text" rows="1" cols="60" name="message" required></textarea>
                     <button id="send_msg" class="btn btnGreen">Send</button>
-                </form> 
+                </form>
             </div>
         </main>
 

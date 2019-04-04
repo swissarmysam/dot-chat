@@ -54,14 +54,13 @@ include('../../inc/lib/php/header.html'); // include standard html head material
         <main>
             <h2>Account Options</h2>
             <br>
-            
-            <!-- Logout -->
+
             <h3>Logout from (dot)chat</h3>
-            <a id="logoutBtn" href="../../Login/Logout.php">Click here to logout</a>
+            <a id="logoutBtn" href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_19_May_2019/Login/Logout.php">Click here to logout</a>
             <br><br><br>
 
             <h3>Update Account Details</h3>
-            <!-- Update Name -->
+            
             <h4>Update Name</h4>
             <label>Current Name: </label>
             <?php showCurrentDetail('full_name'); ?>
@@ -72,8 +71,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                 <br>
                 <button class="btn btnGreen" type="submit">Update Name</button>
             </form>
-            <!-- Update Name Ends -->
-            <!-- Update Email -->
+
             <h4>Update Email Address</h4>
             <label>Current Email: </label>
             <?php showCurrentDetail('email'); ?>
@@ -84,8 +82,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                 <br>
                 <button class="btn btnGreen" type="submit">Update Email</button>
             </form>
-            <!-- Update Email Ends -->
-            <!-- Update Country -->
+            
             <h4>Update Country</h4>
             <label>Current Country: </label>
             <?php showCurrentDetail('country_name'); ?>
@@ -108,9 +105,8 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <br>
             <button class="btn btnGreen" type="submit">Update Country</button>
             </form>
-            <!-- Update Country Ends -->
             <br>
-            <!-- Update Password -->
+
             <h4>Update Password</h4>
             <form name="updatePassword" method="post" action="updatePasswordDAO.php">
             <label>Current Password</label>
@@ -119,19 +115,14 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <input type="password"><br><br>
             <button id="updateBtn" class="btnGreen">Update Password</button>
             </form>
-            <!-- Update Password Ends -->
             <br><br><br>
 
-            <!-- Deactivate Account -->
             <h3>Deactivate my account</h3>
             <a id="deactivateBtn" href="#">Deactivate</a>
-            <!-- Deactivate Account Ends -->
             <br><br>
-            <!-- Delete Account -->
             <h3>Delete my account</h3>
             <p>We're sorry that you want to leave us but if you would like to delete your account, then please <a href="#">contact support</a> to request this.</p>
             <br><br>
-            <!-- Delete Account Ends -->
 
 
         </main>

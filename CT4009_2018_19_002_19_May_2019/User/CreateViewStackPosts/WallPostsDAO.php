@@ -1,11 +1,6 @@
 <?php
 
-/* *************************************************************************************** */
-/* * WallPostsDAO.php handles:                                                           * */
-/* * - saves text messages to posts table                                                * */
-/* *************************************************************************************** */
-
-include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // load db script
+include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php');
 
 /* Function to save data to tbl_posts */
 

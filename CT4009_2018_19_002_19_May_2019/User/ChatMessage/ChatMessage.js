@@ -2,6 +2,7 @@
 This javascript files handles:
     - Handle message data
     - Submission of data to server via ajax 
+    - Adds the message content to the page
 */
 
 /* Handle text post */
@@ -10,8 +11,8 @@ $("#send_msg").click(function () { // if the comment menu option type is selecte
 
 
     let to = sessionStorage.getItem('chatID'); // get the chat to user id - this value is set in the BlockReportUser.js file
-    let from = parseInt($(".user").attr('id')); // get id of user who is sending the message
-    let message = $('#msg_contents').val(); // Get message text
+    let from = parseInt($(".user").attr('id'));
+    let message = $('#msg_contents').val(); // Get message
 
     // console.log("contents", message);
 

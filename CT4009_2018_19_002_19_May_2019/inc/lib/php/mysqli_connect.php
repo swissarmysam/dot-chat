@@ -6,9 +6,9 @@
 
 function openConnection() {
 	$DB_SERVER = 'localhost'; // server name
-	$DB_USER = 'XXX'; // enter your user name
-	$DB_PW = 'XXX'; // enter your database password
-	$DB_NAME = 'XXX'; // enter your database name
+	$DB_USER = 'XXX'; // user name
+	$DB_PW = 'XXX'; // database password
+	$DB_NAME = 'XXX'; // database name
 	
 	// create a new connection to the database or terminate if unsuccessful using OOP construct
 	$connection = new mysqli($DB_SERVER, $DB_USER, $DB_PW, $DB_NAME) or die("Connection failed: %s\n" . $connection -> error); //%s placeholder for error

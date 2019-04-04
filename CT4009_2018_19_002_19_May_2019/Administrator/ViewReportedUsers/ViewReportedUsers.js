@@ -12,7 +12,7 @@ let modal = $(".modal-container"); // select the modal container
 $(".actionManageReport").on("click", function () { // when the actionManageReport link is clicked 
     modal.css("display", "block"); // make the modal visible
     let reportId = parseInt($(this).closest('td').attr('id'));
-    sessionStorage.setItem('checkReportId', reportId); // set reportId value
+    sessionStorage.setItem('checkReportId', reportId);
 });
 
 $(".close").on("click", function () { // when the close button is clicked
@@ -21,7 +21,7 @@ $(".close").on("click", function () { // when the close button is clicked
 
 // 
 
-$('#SubmitBtn').on("click", getReport); // if submit button is clicked
+$('#SubmitBtn').on("click", getReport);
 
 function getReport(){
 
@@ -29,7 +29,7 @@ function getReport(){
     let user = sessionStorage.getItem('checkReportId'); // get the user id so user can be found in members database
 
 
-    switch(action) { // invoke function with different arguments depending on action value
+    switch(action) {
 
         case "warning":
             sendReport(user, "warning");
@@ -60,8 +60,8 @@ function getReport(){
 function sendReport(user = 0, action) { // build request to server from user id and action for server -> handleReport() in DAO
 
     $.ajax({
-        type: "POST", // request method
-        url: "ViewReportedUsersDAO.php", // script location
+        type: "POST",
+        url: "ViewReportedUsersDAO.php",
         data: {
             uid: user,
             action: action
@@ -71,6 +71,6 @@ function sendReport(user = 0, action) { // build request to server from user id 
             alert("Report action successful");
             location.reload(true);
         }
-    }); 
+    }); // 
 
 }

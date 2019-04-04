@@ -2,7 +2,7 @@
 
 /* *************************************************************************************** */
 /* * ChatMessageDAO.php handles:                                                         * */
-/* * - The user interaction and saves messsages to table                                 * */
+/* * - The user interaction and saves messsages to table 
 /* *************************************************************************************** */
 
 include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php'); // db script
@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // only save record if submit method 
     $from = mysqli_real_escape_string($connection, $_POST['from']);  // user id who posted to the wall
     $timestamp = date('Y-m-d H:i:s');
     $set_date = strtotime($timestamp);
-    $date = date("Y-m-d H:i:s", $set_date); // get datetime in compatible format for mySQL table
+    $date = date("Y-m-d H:i:s", $set_date); // get datetime in compatible format
     $message = mysqli_real_escape_string($connection, htmlspecialchars($_POST['message'])); // sanitise message
 
     // build SQL query to save post data in tbl_posts in database - by not quoting the variables where they could be empty they are interpreted as NULL not "NULL"
@@ -30,7 +30,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { // only save record if submit method 
         
     } else {
 
-        // fail handled by ChatMessage.js
         trigger_error("Query: $query\n<br>MySQL Error: " . mysqli_error($connection)); // error to be handled by error handler defined in config.inc.php
 
     }

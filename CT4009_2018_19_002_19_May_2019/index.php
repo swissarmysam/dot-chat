@@ -50,11 +50,11 @@ include('inc/lib/php/header.html');
             <div class="container">
 
                 <h2>Member Login</h2>
-                <!-- If loginDAO returns authCheck value then display -->
+
                 <?php if(isset($_GET['authCheck']) && $_GET['authCheck'] == 'false'): ?>
                     <div class="warning"><p>Sorry. Your email and/or password was incorrect.</p></div>
                 <?php endif; ?> 
-                <!-- If completeResetDAO returns pwReset value then display -->
+
                  <?php if(isset($_GET['pwReset']) && $_GET['pwReset'] == 'success'): ?>
                     <div class="success"><p>Your password has been reset. Please try signing in with your new password.</p></div>
                 <?php endif; ?> 
@@ -72,11 +72,16 @@ include('inc/lib/php/header.html');
                             autocorrect="off" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                             required="required">
                         <!-- information tooltip for user email address -->
+                        <!-- <span class="info-icon">🛈<span class="info-box"><span class="info-text">Enter the email you
+                                    used to sign up.</span></span></span><br>-->
+
 
                         <!-- User password field -->
                         <label for="enterPassword">Password</label>
                         <input id="txtPw" type="password" name="password" placeholder="Enter Password" required="required">
                         <!-- information tooltip for user password -->
+                        <!-- <span class="info-icon">🛈<span class="info-box"><span class="info-text">Enter the password you
+                                    used to sign up.</span></span></span><br> -->
                
                         <!-- submit form button handled by js -->
                         <button id="userLogin" class="btn btnGreen" type="submit">Login</button>
@@ -97,5 +102,8 @@ include('inc/lib/php/header.html');
         <!-- Main section ends -->
     </div>
     <!-- Wrapper div ends -->
+
+    <!-- Javascript files -->
+    <script src="Login/Login.js"></script>
 
     <?php include('inc/lib/php/footer.html'); ?>

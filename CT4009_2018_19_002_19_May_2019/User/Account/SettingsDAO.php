@@ -1,11 +1,5 @@
 <?php
 
-/* ******************************************************************************************************* */
-/* * SettingsDAO.php handles the following user interactivity depending on the POST data:                * */
-/* * - deactivate the user account by updating acc_active to 0                                           * */
-/* * - update name, country and password                                                                 * */
-/* ******************************************************************************************************* */
-
 include_once(__DIR__ . '/../../inc/lib/php/mysqli_connect.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if($aid == "deactivate") {
         
-        $result = mysqli_query($connection, "UPDATE `tbl_members` SET `acc_active`=0 WHERE `user_id`=$id"); // update acc_active value
+        $result = mysqli_query($connection, "UPDATE `tbl_members` SET `acc_active`=0 WHERE `user_id`=$id");
         
 
          if(mysqli_affected_rows($connection) > 0) { // check if row matches query ...
@@ -29,17 +23,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit(); // kill the script process
 
          } else {
-            trigger_error("Query: $result\nMySQL Error: " . mysqli_error($connection)); // log error
-            closeConnection($connection); 
+            trigger_error("Query: $result\nMySQL Error: " . mysqli_error($connection));
+            closeConnection($connection);
             echo "fail";
             exit();
 
          }
      
-    } else if ($aid = "update") {
-
-      exit;
-
     }
 }
 

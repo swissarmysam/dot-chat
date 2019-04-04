@@ -87,6 +87,17 @@ h3.left {
     color: var(--font-darkest);
     font-family: 'Cabin', sans-serif;
     padding: 5px;
+    position:relative;
+}
+
+.advert {
+    position: absolute;
+    padding: 5px 5px 5px 5px;
+    top: 5%;
+    left: 0;
+    width: 90%;
+    color: white;
+    background: rgba(0, 0, 0, 0.55);
 }
 
 button,

@@ -1,6 +1,6 @@
 <?php 
 
-// the error page is a standard error page for users in situations where a 404 could be presented
+// the error page is a standard error page for users 
 
 require('inc/lib/php/config.inc.php');
 
@@ -53,7 +53,6 @@ include('inc/lib/php/header.html');
 
                 <p>An error has been detected but don't panic!</p>
 
-                <!-- Provide a link for user to navigate to last visited page and also to contact support for assistance -->
                 <p><a href="#" onclick="window.history.back();">Go back</a> to the previous page or <a href="#">contact support</a> for help!</p>
 
             </div>
