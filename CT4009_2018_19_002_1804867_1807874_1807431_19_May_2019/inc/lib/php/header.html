@@ -1,0 +1,31 @@
+<?php 
+
+// Code referenced from PHP and MySQL for Dynamic Web Sites 5th by Larry Ullman (2017)
+
+// This page is the HTML header for (dot)chat 
+
+ob_start(); // start the output buffering - stops HTML being sent to the browser immediately resulting in errors
+
+session_start(); // Initialise a new session
+
+// Check that the $page_title is set otherwise put this default page title
+if(!isset($page_title)) { 
+    $page_title = 'Welcome to (dot)chat';
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Get page title from PHP variable -->
+    <title>
+        <?php echo $page_title; ?> 
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- head closed in specific page so dependecies (page css, libs etc) can be imported -->
