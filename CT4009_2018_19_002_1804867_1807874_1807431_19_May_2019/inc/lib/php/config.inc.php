@@ -3,9 +3,9 @@
 
 /* This site was created by:
 * - Samuel Rampling 
-* with contributions from
-* - Hristo Marinov (events creation page)
-* - Ben Hewlett (testing)
+* with a contribuition from:
+* - Hristo Marinov (Event Page)
+* - Ben Hewlett (Testing and User Manual)
 * as a group submission for:
 * - CT4009 002 Assignment
 * Built in 2019
@@ -20,10 +20,10 @@
 // **************************** SITE SETTINGS ******************************** //
 
 // this flag variable is used to define if the site is live for users or not. Whilst FALSE, detailed error messages are sent to the browser
-define('LIVE', FALSE);
+define('LIVE', TRUE);
 
 // the EMAIL variable is where the error messages will be sent to once the LIVE flag is set to TRUE
-define('EMAIL', 'XXX');
+define('EMAIL', 'xxx@xxx.xxx');
 
 // URL for redirections to build URLs ex. header('Location:' . BASE_URL .'register.php')
 define('BASE_URL', 'http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_1804867_1807874_1807431_19_May_2019/');

@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = mysqli_query($connection, "SELECT * FROM `tbl_members` WHERE `user_id`='$id'"); // create query to delete record from tbl_members
 
     if(mysqli_num_rows($query) > 0) { // check if row matches query ...
-
+        // delete user record
         $result = mysqli_query($connection, "DELETE FROM `tbl_members` WHERE `user_id`='$id'");
         echo 1;
         closeConnection($connection);

@@ -22,7 +22,7 @@ let urlfilter = "";
 let url = "http://svcs.ebay.com/services/search/FindingService/v1";
 url += "?OPERATION-NAME=findItemsByKeywords";
 url += "&SERVICE-VERSION=1.0.0";
-url += "&SECURITY-APPNAME=SamRampl-dotchat-PRD-da5d7323e-01a24007";
+url += "&SECURITY-APPNAME=APP_NAME";
 url += "&GLOBAL-ID=EBAY-GB";
 url += "&RESPONSE-DATA-FORMAT=JSON";
 url += "&callback=_cb_findItemsByKeywords";

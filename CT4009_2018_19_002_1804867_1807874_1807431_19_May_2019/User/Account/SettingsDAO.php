@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $connection = openConnection(); // connect to database
 
     if($aid == "deactivate") {
-        
+        // run query on member table to deactivate user account
         $result = mysqli_query($connection, "UPDATE `tbl_members` SET `acc_active`=0 WHERE `user_id`=$id");
         
 

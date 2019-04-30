@@ -11,6 +11,7 @@ function showMessages() {
     $chat_id = $_SESSION['other_id'];
     $user_id = $_SESSION['user_id'];
 
+    // run query to get messages between signed in user and the member they are interacting with 
     $sql = "SELECT tbl_messages.msg_text, tbl_messages.msg_date_time, tbl_members.full_name 
             FROM tbl_messages INNER JOIN tbl_members ON tbl_messages.msg_from_id=tbl_members.user_id 
             WHERE `msg_to_id`=$chat_id AND msg_from_id=$user_id";
@@ -28,6 +29,7 @@ function showMessages() {
     }
 }
 
+// display member who you are chatting with name
 function showChatToName() {
 
     $connection = openConnection(); // connect to database

@@ -3,7 +3,7 @@
 // the wall post page is a public location to store text, images and locations of interest
 
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
-// include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
+include_once('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
 
 include_once("./ShowWallPosts.php");
 

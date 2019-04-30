@@ -39,6 +39,9 @@ $.ajax({
         let dataPoints = [];
         let len = set.length;
     
+        // from the json returned in the server response (from post table)
+        // a loop will iterate over the object and push the co-ordinates 
+        // into a new array in a format that google maps api can use
         for(let idx = 0; idx < len; idx++){
             let currentData = new google.maps.LatLng(parseFloat(set[idx].lat), parseFloat(set[idx].lng));
             dataPoints.push(currentData);
@@ -51,6 +54,8 @@ $.ajax({
     initMap();
 
 });
+
+(google.maps.event.trigger(map, 'resize'));
 
 
 

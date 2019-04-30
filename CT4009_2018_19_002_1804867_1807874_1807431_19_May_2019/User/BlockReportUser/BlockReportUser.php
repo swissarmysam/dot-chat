@@ -3,7 +3,7 @@
 // the login page is the index page for the website as users need to be logged in to utilise its functionality
 
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
-// include('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
+include_once('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
 require('./BlockReportUserDAO.php');
 
 $page_title = "Dashboard - (dot)chat"; // set web page title

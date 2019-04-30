@@ -1,7 +1,7 @@
-/* ************************************ */
-/*                                      */
-/*                                      */
-/* ************************************ */
+/* ********************************************************************** */
+/*  Settings.js handles:                                                  */
+/*  - submission of account deactivation to php script via ajax request   */                                
+/* ********************************************************************** */
 
 //Event handler for each "Delete User" action
 $('#deactivateBtn').click(function () { // when clicked

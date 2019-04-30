@@ -1,5 +1,8 @@
 <?php
 
+// This script adds a report about the user to the report table. 
+// The data is populated from BlockReportUser.js
+
 require_once(__DIR__ . "/../../inc/lib/php/config.inc.php");
 
 require_once(__DIR__ . "/../../inc/lib/php/mysqli_connect.php");

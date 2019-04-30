@@ -5,10 +5,10 @@
 // Connection code reference https://www.cloudways.com/blog/connect-mysql-with-php/
 
 function openConnection() {
-	$DB_SERVER = 'XXX'; // server name
-	$DB_USER = 'XXX'; // user name
-	$DB_PW = 'XXX'; // database password
-	$DB_NAME = 'XXX'; // database name
+	$DB_SERVER = 'xxx'; // server name
+	$DB_USER = 'xxx'; // user name
+	$DB_PW = 'xxx'; // database password
+	$DB_NAME = 'xxx'; // database name
 	
 	// create a new connection to the database or terminate if unsuccessful using OOP construct
 	$connection = new mysqli($DB_SERVER, $DB_USER, $DB_PW, $DB_NAME) or die("Connection failed: %s\n" . $connection -> error); //%s placeholder for error

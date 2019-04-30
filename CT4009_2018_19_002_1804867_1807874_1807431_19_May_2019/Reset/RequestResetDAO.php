@@ -18,8 +18,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             list($user_id, $user_email) = mysqli_fetch_array($result, MYSQLI_NUM);
             mysqli_free_result($result);
             
-            $token = openssl_random_pseudo_bytes(16); // create random string 16 bytes in length
-            $token = bin2hex($token); // convert generated binary data into a hex string
+            $token = openssl_random_pseudo_bytes(16);
+            $token = bin2hex($token);
 
             $timestamp = date('Y-m-d H:i:s');
             $set_date = strtotime($timestamp);
@@ -30,11 +30,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $reset_id = mysqli_insert_id($connection);
 
-            // build password reset link to be sent to user. This will include user id, the reset id and the generated token for authentication
             $verifyLocation = "http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_1804867_1807874_1807431_19_May_2019/Reset/VerifyResetDAO.php";
             $sendLink = $verifyLocation . '?uid=' . $user_id . '&id=' . $reset_id . "&request=" . $token;
-            
-            // build email body
+
             $subject = "Password Reset - (dot)chat";
             
             $body = "
@@ -49,10 +47,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $body = wordwrap($body, 70); // truncate the line length as per php.net mail() documentation
           
 
-            mail($user_email, $subject, $body); // send email
+            mail($user_email, $subject, $body);
 
             closeConnection($connection);
-            // redirect user to status page that will display success message
             header('Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_1804867_1807874_1807431_19_May_2019/Reset/ResetStatus.php?requestResult=received');
             exit();
 
@@ -60,7 +57,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
            // return false; 
            closeConnection($connection);
-           // redirect user to status page that will display fail message
            header('Location: http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_1804867_1807874_1807431_19_May_2019/Reset/ResetStatus.php?requestResult=not-found');
            exit();
           

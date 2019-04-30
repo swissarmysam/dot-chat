@@ -48,7 +48,7 @@ include('../inc/lib/php/header.html');
 
             <!-- Container div begins -->
             <div class="container">
-                <!-- Handle the message to be displayed based on query string value-->
+                <!-- Display message depending on value in query string -->
                 <?php if(isset($_GET['resetResult']) && $_GET['resetResult'] == 'fail'): ?>
                     <h2>Password Reset Failed</h2>
 
@@ -68,7 +68,7 @@ include('../inc/lib/php/header.html');
 
                     <p class="warning">The email you entered was not found in our records. If this is an error, please contact <a href="#">support</a>.</p>
                 <?php endif; ?>
-                <!-- End handling of status messages -->
+
             </div>
             <!-- container div ends -->
         </main>
