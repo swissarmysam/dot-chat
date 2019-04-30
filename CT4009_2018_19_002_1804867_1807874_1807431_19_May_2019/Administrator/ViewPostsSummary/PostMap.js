@@ -55,7 +55,7 @@ $.ajax({
 
 });
 
-(google.maps.event.trigger(map, 'resize'));
+
 
 
 
