@@ -5,6 +5,7 @@
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 require('./DeleteUserDAO.php'); //include database access functions for Delete User page
 include_once('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
+include_once('../../inc/lib/php/check_admin.php'); // include script to check if user is an admin
 
 $page_title = "Delete User - (dot)chat"; // set web page title
 include('../../inc/lib/php/header.html'); // include standard html head material 

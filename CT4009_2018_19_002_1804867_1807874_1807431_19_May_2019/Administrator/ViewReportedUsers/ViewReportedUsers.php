@@ -4,6 +4,7 @@
 
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 include_once('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
+include_once('../../inc/lib/php/check_admin.php'); // include script to check if user is an admin
 require('./ViewReportedUsersDAO.php'); // get db script for this page
 
 $page_title = "Reported Users - (dot)chat"; // set web page title

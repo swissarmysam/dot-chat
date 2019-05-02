@@ -4,6 +4,7 @@
 
 require('../../inc/lib/php/config.inc.php'); // include site-wide functionality 
 include_once('../../inc/lib/php/session.php'); // include script to check if a session is active (i.e. user is logged in) otherwise redirect to login page
+include_once('../../inc/lib/php/check_admin.php'); // include script to check if user is an admin
 require('./ViewPostsSummaryDAO.php');
 
 $page_title = "Statistics - (dot)chat"; // set web page title
@@ -72,9 +73,8 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                 <?php getPostCount(); ?> <!-- Display total number of posts in tbl_posts -->
             </table>
 
-            <!-- Heatmap -->
-            <div id="map-canvas" class="hidden" style="width:640px;height:480px;"></div>
-
+            <div id="map-canvas" class="hidden" style="height:640px; width:640px;"></div>
+        
             <!-- All posts listed in table -->
             <table id="managePosts" class="hidden">
                 <!-- table is hidden by default - can be toggled by Manage action -->
