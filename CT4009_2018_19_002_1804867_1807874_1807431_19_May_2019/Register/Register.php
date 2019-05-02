@@ -62,7 +62,7 @@ include('../inc/lib/php/header.html'); // include header file
 
                         <!-- Full Name -->
                         <label for="full_name" class="field-label">Full Name</label>
-                        <input class="field-text" type="text" id="full_name" name="full_name" placeholder="Enter full name eg. Alex Smith"
+                        <input class="field-text" type="text" id="full_name" name="full_name" placeholder="Enter full name eg. Alex Smith" pattern="[A-Za-z]{1,255}" title="You can only use letters here"
                             required="required" />
 
                         <!-- Email Address -->
