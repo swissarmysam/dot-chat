@@ -48,5 +48,24 @@ function showWallOwner() {
                         
 }
 
+function showEvent() {
+
+    $connection = openConnection(); // connect to database
+
+    $id = $_SESSION['other_id']; // get id of user being interacted with
+
+    $sql = "SELECT `event_id`, `event_name`, `event_desc`, `event_date_time`, `lat`, `lng`, `event_loc` FROM `tbl_events` WHERE `creator_id`=$id ORDER BY 'event_id' "; // get the event details
+  
+    $query = mysqli_query($connection, $sql); // create query to select record from country_name column
+
+    if(mysqli_num_rows($query) > 0) { // if a record exists then ...
+     while($option_row = mysqli_fetch_array($query, MYSQLI_NUM)) {
+         echo "<div class='Event'> <h2>" . $option_row[1] . "</h2> <hr /> <p>" . $option_row[2] . "</p> <hr /> <p>" . $option_row[6] . "</p> <p>Date and Time: <br />" . $option_row[3] . "</p> </div>";
+    }
+
+    closeConnection($connection); // close database connection
+                        
+    }
+}  
 
 ?>

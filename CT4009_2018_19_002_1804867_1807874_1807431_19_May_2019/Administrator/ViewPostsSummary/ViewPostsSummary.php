@@ -32,7 +32,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
     crossorigin="anonymous"></script>
 
 <!-- Import map libraries -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=visualization"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=apikey&libraries=visualization"></script>
 
 
 <!-- End import -->

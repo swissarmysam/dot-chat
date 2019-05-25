@@ -52,10 +52,8 @@ $.ajax({
     }
     
     initMap();
-    google.maps.event.trigger(map, 'resize');
 
 });
-
 
 
 

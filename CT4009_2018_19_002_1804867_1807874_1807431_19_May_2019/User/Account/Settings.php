@@ -58,7 +58,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <h3>Logout from (dot)chat</h3>
             <a id="logoutBtn" href="http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_1804867_1807874_1807431_19_May_2019/Login/Logout.php">Click here to logout</a>
             <br><br><br>
-
+            <!--
             <h3>Update Account Details</h3>
             
             <h4>Update Name</h4>
@@ -116,7 +116,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
             <button id="updateBtn" class="btnGreen">Update Password</button>
             </form>
             <br><br><br>
-
+            --->
             <h3>Deactivate my account</h3>
             <a id="deactivateBtn" href="#">Deactivate</a>
             <br><br>

@@ -62,6 +62,7 @@ include('../../inc/lib/php/header.html'); // include standard html head material
                     <li id="comment-post"><i class="fas fa-comments"></i>Comment</li> <!-- Comment Posts action -->
                     <li id="image-post"><i class="fas fa-images"></i>Image</li> <!-- Image Posts action -->
                     <li id="loc-post"><i class=" fas fa-map"></i>Location</li> <!-- Location Posts action -->
+ 		    <li id ="event-create"><a href="../EventCreatePage/EventCreatePage.php">Event</a></li>
                 </ul>
             </nav>
             <?php showWallOwner(); ?>
@@ -103,7 +104,9 @@ include('../../inc/lib/php/header.html'); // include standard html head material
     <section class="wall">
 
         <?php showWallPosts(); ?>
-
+	
+	    <?php showEvent(); ?> 
+	    
     </section>
     <!-- Wall section ends -->
 

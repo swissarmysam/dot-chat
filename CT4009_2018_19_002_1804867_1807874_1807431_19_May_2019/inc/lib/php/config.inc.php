@@ -2,10 +2,9 @@
 // **************************** SITE INFORMATION ******************************** //
 
 /* This site was created by:
-* - Samuel Rampling 
-* with a contribuition from:
-* - Hristo Marinov (Event Page)
-* - Ben Hewlett (Testing and User Manual)
+* - Samuel Rampling no. 1804867 
+* - Hristo Marinov no. 
+* - Ben Hewlett no.
 * as a group submission for:
 * - CT4009 002 Assignment
 * Built in 2019
@@ -23,7 +22,7 @@
 define('LIVE', TRUE);
 
 // the EMAIL variable is where the error messages will be sent to once the LIVE flag is set to TRUE
-define('EMAIL', 'xxx@xxx.xxx');
+define('EMAIL', 's1804867@connect.glos.ac.uk');
 
 // URL for redirections to build URLs ex. header('Location:' . BASE_URL .'register.php')
 define('BASE_URL', 'http://ct4009-saming.studentsites.glos.ac.uk/CT4009_2018_19_002_1804867_1807874_1807431_19_May_2019/');
